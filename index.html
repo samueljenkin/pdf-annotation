@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en" >
+
+<head>
+  <meta charset="UTF-8">
+  <title>Drag and drop Annotation Prototype</title>
+  
+  
+  <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.5/css/bootstrap.min.css'>
+
+      <link rel="stylesheet" href="css/style.css">
+
+  
+</head>
+
+<body>
+
+  <div class="container"> 
+  <div class="row">
+      <div class="col-md-12" style="padding:10px">
+          <div>
+            <input
+              id="pdfFileInput"
+              type="file"
+              accept=".pdf"
+              style="display: none;"
+              onChange="handleFileInputChange(event)"
+            />
+            <button class="btn btn-primary btn-block" onClick="handleOpenPdfFile()">Open PDF File</button>
+          </div>
+      </div>
+  </div>   
+  <div class="row">
+					<div class="col-md-12" id="pdfManager" style="display:none">	
+						<div class="row" id="selectorContainer">
+							<div class="col-fixed-240" id="parametriContainer">
+							</div>
+							<div class="col-fixed-605">
+								<div id="pageContainer" class="pdfViewer singlePageView dropzone nopadding" style="background-color:transparent">
+									<canvas id="the-canvas" style="border:1px  solid black"></canvas>
+								</div>
+                <div class="buttonContainer">
+                  <button onclick="getPrevPage()">prev</button>
+                  <button onclick="getNextPage()">next</button>
+                </div>
+							</div>
+						</div>
+					</div>
+				</div>
+</div>
+
+<!-- parameters showed on the left sidebar -->
+<input id="parameters" type="hidden" value='[{"idParametro":480,"descrizione":"RAPINA","valore":"X","nota":null},{"idParametro":481,"descrizione":"CAUSAL_G00","valore":"X","nota":null},{"idParametro":482,"descrizione":"A","valore":"A","nota":null},{"idParametro":483,"descrizione":"POSTA_REGISTRATA","valore":"X","nota":null},{"idParametro":484,"descrizione":"CD","valore":"CD","nota":null},{"idParametro":485,"descrizione":"DATA_ALERT","valore":"data alert","nota":null},{"idParametro":486,"descrizione":"UP","valore":"UP","nota":null},{"idParametro":488,"descrizione":"DATA_MP","valore":"DATA1","nota":null},{"idParametro":489,"descrizione":"AL_QUALITA","valore":"AL_QUALITA","nota":null},{"idParametro":490,"descrizione":"CAUSAL_G60","valore":"X","nota":null},{"idParametro":491,"descrizione":"DATA","valore":"DATA","nota":null},{"idParametro":492,"descrizione":"DATA_DENUNCIA","valore":"data denuncia","nota":null},{"idParametro":493,"descrizione":"DATA_SPEDIZIONE","valore":"data spedizione","nota":null},{"idParametro":494,"descrizione":"DATA_LAVORAZIONE","valore":"DATA_LAVORAZIONE","nota":null},{"idParametro":495,"descrizione":"NUMERO_FAX","valore":"NUMERO_FAX","nota":null},{"idParametro":496,"descrizione":"SMARRIMENTO","valore":"X","nota":null},{"idParametro":497,"descrizione":"STRUTT_ACCETTAZIONE","valore":"STRUTT_ACCETTAZIONE","nota":null},{"idParametro":498,"descrizione":"FURTO","valore":"X","nota":null},{"idParametro":499,"descrizione":"BARCODE","valore":"BARCODE","nota":null},{"idParametro":502,"descrizione":"CAUSA_MAGGIORE","valore":"X","nota":null},{"idParametro":503,"descrizione":"PACCHI","valore":"X","nota":null},{"idParametro":504,"descrizione":"TIPOLOGIA_EVENTO","valore":"TIPOLOGIA_EVENTO","nota":null},{"idParametro":505,"descrizione":"NOTE","valore":"NOTE","nota":null},{"idParametro":506,"descrizione":"DATA_RITROVAMENTO","valore":"data ritrovamento","nota":null},{"idParametro":507,"descrizione":"DATA_ACCETTAZIONE","valore":"DATA_ACCETTAZIONE","nota":null},{"idParametro":509,"descrizione":"AREA_LOGISTICA","valore":"AREA_LOGISTICA","nota":null},{"idParametro":511,"descrizione":"DA","valore":"DA","nota":null},{"idParametro":512,"descrizione":"DATA_DENUNCIA","valore":"DATA_DENUNCIA","nota":null},{"idParametro":513,"descrizione":"TIPOLOGIA_ALERT","valore":"TIPOLOGIA","nota":null},{"idParametro":515,"descrizione":"STRUTTURA_RILIEVO","valore":"STRUTTURA_RILIEVO","nota":null},{"idParametro":516,"descrizione":"STRUTTURA_DENUNCIA","valore":"STRUTTURA_DENUNCIA","nota":null},{"idParametro":517,"descrizione":"DISPACCIO","valore":"DISPACCIO","nota":null},{"idParametro":518,"descrizione":"CMP_CP","valore":"CMP_CP","nota":null},{"idParametro":520,"descrizione":"FURTO_EFFRAZIONE","valore":"X","nota":null}]' />
+<!-- Below the pdf base 64 rapresentation -->
+<input id="pdfBase64" type="hidden" value="" />
+<script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js'></script>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.5/js/bootstrap.min.js'></script>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.0.943/pdf.min.js'></script>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/interact.js/1.2.9/interact.min.js'></script>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.0.943/pdf.worker.min.js'></script>
+  <script  src="js/index.js"></script>
+</body>
+
+</html>
